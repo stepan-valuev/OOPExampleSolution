@@ -13,7 +13,7 @@ public:
 	//constructors
 
 	//deffault constructors or constructors without arguments
-	/*Student() {
+	Student() {
 		cout << "deffault-constructor..." << endl;
 		name = "undefine";
 		age = 13;
@@ -38,16 +38,29 @@ public:
 		mark = 4.0;
 		alive = false;
 
-	}*/
+	}
 
-	//Student(string nm, int a, double m, bool al) {
-	//	cout << "constructor with arguments(name, age, mark, alive)" << endl;
-	//	name = nm;
-	//	age = a < 13 ? 13 : a;
-	//	mark = m;
-	//	alive = al;
+	//canonical constructors 
 
-	//}
+	Student(string nm, int a, double m, bool al) {
+		cout << "constructor with arguments(name, age, mark, alive)" << endl;
+		name = nm;
+		age = a < 13 ? 13 : a;
+		mark = m;
+		alive = al;
+
+	}
+
+	//copy-constructors 
+
+	Student(const Student& student) {
+		cout << "copy-constructor..." << endl;
+		name = student.name;
+		age = student.age;
+		mark = student.mark;
+		alive = student.alive;
+
+	}
 
 
 	//methods
