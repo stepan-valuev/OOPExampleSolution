@@ -62,6 +62,11 @@ public:
 
 	}
 
+	~Student() {
+		cout << "destructor..." << endl;
+
+	}
+
 
 	//methods
 	string toString() {
