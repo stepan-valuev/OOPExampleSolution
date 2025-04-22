@@ -15,72 +15,53 @@ public:
 
 	// default-constructor or constructors without arguments
 
-	Student()
+	Student() : Student("no name", 13, 0, true)
 	{
 		cout << "default-constructor..." << endl;
-		name = "no name";
-		age = 13;
-		countMarks = 0;
-		marks = nullptr;
-		alive = true;
 	}
 
 	// constructors with arguments
 
-	Student(string nm)
+	Student(string name) : Student(name, 13)
 	{
 		cout << "constructor with arguments (name)..." << endl;
-		name = nm;
-		age = 13;
-		countMarks = 0;
-		marks = nullptr;
-		alive = true;
 	}
+
 	// constructor with arguments
 
-	Student(string nm, int a)
+	Student(string name, int age) : Student(name, age, 0, true)
 	{
 		cout << "constructor with arguments (name,age)..." << endl;
-		name = nm;
-		age = a < 13 ? 13 : a;
-		countMarks = 0;
-		marks = nullptr;
-		alive = true;
 	}
+
 	// canonical-constructor
-	Student(string nm, int a, int count, bool al)
+	Student(string name, int age, int countMarks, bool alive)
 	{
 		cout << "canonical-constructor..." << endl;
-		name = nm;
-		age = a < 13 ? 13 : a;
-		countMarks = count;
-		marks = new int[count];
+		this->name = name;
+		this->age = age < 13 ? 13 : age;
+		this->countMarks = countMarks;
+		marks = new int[countMarks];
 
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < countMarks; i++)
 		{
 			marks[i] = 4;
 		}
 
-		alive = al;
+		this->alive = alive;
 
 	}
 
 	// copy-constructor
 
-	Student(const Student& student)
+	Student(const Student& student) : Student(student.name,
+		student.age, student.countMarks, student.alive)
 	{
 		cout << "copy-constructor..." << endl;
-		name = student.name;
-		age = student.age;
-		countMarks = student.countMarks;
-		marks = new int[countMarks];
-
 		for (int i = 0; i < countMarks; i++)
 		{
 			marks[i] = student.marks[i];
 		}
-
-		alive = student.alive;
 
 	}
 
@@ -91,20 +72,18 @@ public:
 
 		if (countMarks != 0)
 		{
-			delete[] marks;
+			delete[] this->marks;
 		}
 
-
 	}
-
 
 	// methods
 	string toString()
 	{
-		string s = "Name: " + name;
-		s += ", age: " + to_string(age)
-			+ ", marks: " + convert()
-			+ ", alive: " + (alive ? "yes" : "no");
+		string s = "Name: " + this->name;
+		s += ", age: " + to_string(this->age)
+			+ ", marks: " + this->convert()
+			+ ", alive: " + (this->alive ? "yes" : "no");
 
 		return s;
 	}
@@ -113,14 +92,14 @@ public:
 	{
 		string s = "[";
 
-		if (countMarks > 0)
+		if (this->countMarks > 0)
 		{
-			for (int i = 0; i < countMarks - 1; i++)
+			for (int i = 0; i < this->countMarks - 1; i++)
 			{
-				s += to_string(marks[i]) + ", ";
+				s += to_string(this->marks[i]) + ", ";
 			}
 
-			s += to_string(marks[countMarks - 1]);
+			s += to_string(this->marks[this->countMarks - 1]);
 		}
 
 		s += "]";
