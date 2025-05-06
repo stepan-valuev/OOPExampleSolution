@@ -3,7 +3,7 @@
 using namespace std;
 
 class Student {
-public:
+private:
 	// fields
 	string name;
 	int age;
@@ -12,6 +12,42 @@ public:
 	bool alive;
 
 	// constructors
+public:
+	string getName() {
+		return name;
+	}
+
+	void setName() {
+		this->name;
+	}
+
+	void setAge(int age) {
+		if (age >= 13 && age <= 18) {
+			this->age = age;
+		}
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	void setMrks(int* marks, int count) {
+		this->marks = marks;
+		countMarks = count; 
+	}
+
+	int getCountMarks() {
+		return countMarks;
+	}
+
+	bool isAlive() {
+		return alive;
+	}
+
+	void setAlive(bool alive) {
+		this->alive = alive;
+	}
+
 
 	// default-constructor or constructors without arguments
 
