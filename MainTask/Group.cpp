@@ -30,17 +30,47 @@ Group::~Group() {
 	}
 }
 
-Group::~Group() {
-};
+Student Group::get(int index) {
+	if (count > 0 && index >= 0 && index < count) {
+		return list[index];
+	}
+	return Student();
+}
 
-Student get(int index);
+void Group::set(int index, Student student) {
+	if (count > 0 && index >= 0 && index < count) {
+		list[index] = student;
+	}
+}
+
+int Group::getCount() {
+	return count;
+}
+
+void Group::add(Student student) {
+	if (list != nullptr && count < capacity) {
+		list[count] = student;
+		count++;
+	}
+}
+
+void Group::remove(Student student) {
+	for (int i = 0; i < count; i++)
+	{
+		if (list[i].getName() == student.getName())
+	}
+}
 void st(int index, Student student);
 int getCount();
 void add(Student student);
 void add(int index, Student student);
 void remove(Student student);
 void remove(int index, Student student);
-void clear();
-bool isEmpty();
+void Group::clear() {
+	count = 0;
+}
+bool Group::isEmpty() {
+	return count == 0;
+}
 string toString();
 
