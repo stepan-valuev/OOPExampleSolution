@@ -1,10 +1,8 @@
 #include "Group.h"
 
-class Initializer
-{
+class Initializer {
 
 public:
-
 	void init(Group group);
 
 };
