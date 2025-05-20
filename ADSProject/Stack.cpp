@@ -1,9 +1,10 @@
 #include "Stack.h"
 
-
 Stack::Stack() {
-
+	stack = nullptr;
+	size = 0;
 }
+
 Stack::~Stack() {
 	clear();
 }
@@ -20,12 +21,14 @@ void Stack::push(int element) {
 		{
 			temp[i] = stack[i];
 		}
+
 		temp[size] = element;
 		size++;
 		delete[] stack;
-		size = 0;
+		stack = temp;
 	}
 }
+
 int Stack::pop() {
 	if (isEmpty()) {
 		return 0;
@@ -34,37 +37,52 @@ int Stack::pop() {
 	int element = stack[size - 1];
 
 	size--;
-	int* temp = new int[size - 1];
+	int* temp = new int[size];
 
 	for (int i = 0; i < size; i++)
 	{
 		temp[i] = stack[i];
 	}
+
 	delete[] stack;
 	stack = temp;
 
 	return element;
 }
+
 int Stack::peek() {
-	if (!isEmpty) {
+	if (!isEmpty()) {
 		return stack[size - 1];
+	}
+
+	return 0;
+}
+
+bool Stack::isEmpty() {
+	return size == 0;
+}
+
+int Stack::getSize() {
+	return size;
+}
+
+void Stack::clear() {
+	if (!isEmpty()) {
+		delete[] stack;
 		size = 0;
 	}
 }
-bool Stack::isEmpty() {
-}
-int Stack::getSize() {
-}
-void Stack::clear() {
-}
+
 string Stack::toString() {
-	s = "";
+	string s = "Stack is empty.";
 
-	for (int i = size - 1; i >= 0; i--)
-	{
-		s += to_string(stack[i]) + " ";
+	if (!isEmpty()) {
+		s = "";
+		for (int i = size - 1; i >= 0; i--)
+		{
+			s += to_string(stack[i]) + " ";
+		}
 	}
-}
 
-return s;
+	return s;
 }
