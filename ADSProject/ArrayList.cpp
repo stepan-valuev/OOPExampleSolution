@@ -77,7 +77,7 @@ void ArrayList::remove(int index) {
 			list = temp;
 		}
 
-		void ArrayList::clear(){
+		void ArrayList::clear() {
 			if (list != nullptr) {
 				delete[] list;
 				size = 0;
