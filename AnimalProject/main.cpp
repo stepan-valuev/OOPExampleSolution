@@ -1,48 +1,15 @@
-#include "main.h"
-
-class A {
-public:
-
-	virtual void show() {
-		cout << "class A" << endl;
-	}
-};
-
-class B : public A {
-public:
-
-	void show() override {
-		cout << "class B" << endl;
-	}
-};
-
-class C : public A {
-	void show() {
-		cout << "class C" << endl;
-	}
-};
-class D : public C {
-	void show() {
-		cout << "class D" << endl;
-	}
-};
-
-//динамический полеморфизм
-//позднее связывание
-//переопределение
+#include "SoundStudio.h"
+#include "Cat.h"
+#include "Dog.h"
 
 int main() {
-	A* a = new A();
-	a->show();
+	SoundStudio studio;
 
-	a = new B();
-	a->show();
+	Dog* dog = new Dog("Laika");
+	Cat* cat = new Cat("Adel");
 
-	a = new C();
-	a->show();
-
-	a = new D();
-	a->show();
+	studio.makeItSound(dog);
+	studio.makeItSound(cat);
 
 	return 0;
 }
