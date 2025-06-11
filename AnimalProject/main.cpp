@@ -3,13 +3,18 @@
 #include "Dog.h"
 
 int main() {
-	SoundStudio studio;
+	Animal a1, a2, a3;
 
-	Dog* dog = new Dog("Laika");
-	Cat* cat = new Cat("Adel");
+	cout << "Number of animals: " << a3.getCount << endl;
+	cout << "Number of animals: " << Animal::getCount << endl;
 
-	studio.makeItSound(dog);
-	studio.makeItSound(cat);
+	{
+		Animal a4, a5;
+		cout << "Number of animals: " << Animal::getCount << endl;
+
+	}
+
+	cout << "Number of animals: " << Animal::getCount << endl;
 
 	return 0;
 }

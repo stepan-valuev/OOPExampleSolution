@@ -4,7 +4,5 @@
 class SoundStudio
 {
 public:
-	void makeItSound(Animal* animal) {
-		animal->getVoice();
-	}
+
 };
